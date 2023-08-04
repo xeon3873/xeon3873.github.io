@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <title>경고!! 당신은 해킹됨!!</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes, 
+        maximum-scale=5, minimum-scale=1.0">
+        <style>
+            .basic {
+                text-align: center;
+            }
+            body {
+                background-color: #ff0000;
+                color: #000000;
+            }
+        </style>
+        <script>
+            setInterval('changeWhite()', 200);
+            setInterval('changeRed()', 400);
+            
+            function changeWhite()
+            {
+                document.body.style.backgroundColor = "#ffffff";
+            }
+            function changeRed()
+            {
+                document.body.style.backgroundColor = "#ff0000";
+            }
+        </script>
+    </head>
+    <body>
+        <div class="basic">
+            <h2><p>경고!! 지금 당신은 해킹되었습니다!!</p></h2>
+            <h2><p>앞으로 당신은 언제 개인정보가 빠져나갈지 알 수 없습니다!</p></h2>
+        </div>
+    </body>
+</html>
