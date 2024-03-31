@@ -76,7 +76,6 @@
             hiraList.push(['を','o(wo)']);
             hiraList.push(['ん','n']);
 
-            document.addEventListener("keyup", checkKeyPressed, true);
             
             function answerHiragana()
             {
@@ -86,8 +85,6 @@
                 let b = document.getElementById("btn");
                 b.setAttribute("onClick", "randomPronoun()");
                 b.innerText = "ランダムの発音";
-
-                ch = 1;
             }
 
             function randomPronoun()
@@ -105,16 +102,6 @@
                 let b = document.getElementById("btn");
                 b.setAttribute("onClick", "answerHiragana()");
                 b.innerText = "正解を見る";
-
-                ch = 0;
-            }
-
-            function checkKeyPressed(e)
-            {
-                if (e.keyCode == 13 || e.keyCode == 32)
-                {
-                    
-                }
             }
         </script>
     </head>
