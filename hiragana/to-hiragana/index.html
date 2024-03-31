@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <title>Hiragana - Xeon</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes, 
+        maximum-scale=5, minimum-scale=1.0">
+        <style>
+            * {
+                background-color: #1f2023;
+                color: #dddddd;
+            }
+            .main {
+                text-align: center;
+                width: 500px;
+                height: 300px;
+                position: absolute;
+                left: 45%;
+                top: 50%;
+                margin-left: -150px;
+                margin-top: -150px;
+            }
+            #hiragana {
+                font-size: x-large;
+            }
+        </style>
+        <script>
+            let hiraList = [];
+            let random; let ch = 0;
+            
+
+            hiraList.push(['あ','a']);
+            hiraList.push(['い','i']);
+            hiraList.push(['う','u']);
+            hiraList.push(['え','e']);
+            hiraList.push(['お','o']);
+            hiraList.push(['か','ka']);
+            hiraList.push(['き','ki']);
+            hiraList.push(['く','ku']);
+            hiraList.push(['け','ke']);
+            hiraList.push(['こ','ko']);
+            hiraList.push(['さ','sa']);
+            hiraList.push(['し','shi']);
+            hiraList.push(['す','su']);
+            hiraList.push(['せ','se']);
+            hiraList.push(['そ','so']);
+            hiraList.push(['た','ta']);
+            hiraList.push(['ち','chi']);
+            hiraList.push(['つ','tsu']);
+            hiraList.push(['て','te']);
+            hiraList.push(['と','to']);
+            hiraList.push(['な','na']);
+            hiraList.push(['に','ni']);
+            hiraList.push(['ぬ','nu']);
+            hiraList.push(['ね','ne']);
+            hiraList.push(['の','no']);
+            hiraList.push(['は','ha']);
+            hiraList.push(['ひ','hi']);
+            hiraList.push(['ふ','hu']);
+            hiraList.push(['へ','he']);
+            hiraList.push(['ほ','ho']);
+            hiraList.push(['ま','ma']);
+            hiraList.push(['み','mi']);
+            hiraList.push(['む','mu']);
+            hiraList.push(['め','me']);
+            hiraList.push(['も','mo']);
+            hiraList.push(['や','ya']);
+            hiraList.push(['ゆ','yu']);
+            hiraList.push(['よ','yo']);
+            hiraList.push(['ら','ra']);
+            hiraList.push(['り','ri']);
+            hiraList.push(['る','ru']);
+            hiraList.push(['れ','re']);
+            hiraList.push(['ろ','ro']);
+            hiraList.push(['わ','wa']);
+            hiraList.push(['を','o(wo)']);
+            hiraList.push(['ん','n']);
+
+            document.addEventListener("keyup", checkKeyPressed, true);
+            
+            function answerHiragana()
+            {
+                let h = document.getElementById("hiragana");
+                h.innerText = hiraList[random][0];
+
+                let b = document.getElementById("btn");
+                b.setAttribute("onClick", "randomPronoun()");
+                b.innerText = "ランダムの発音";
+
+                ch = 1;
+            }
+
+            function randomPronoun()
+            {
+                random = Math.floor(Math.random() * 46);
+
+                let p = document.getElementById("pronoun");
+                p.style.fontSize = "x-large";
+                p.innerText = hiraList[random][1];
+
+                let h = document.getElementById("hiragana");
+                h.style.fontSize = "xx-large";
+                h.innerText = "何？";
+
+                let b = document.getElementById("btn");
+                b.setAttribute("onClick", "answerHiragana()");
+                b.innerText = "正解を見る";
+
+                ch = 0;
+            }
+
+            function checkKeyPressed(e)
+            {
+                if (e.keyCode == 13 || e.keyCode == 32)
+                {
+                    
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <a href="../">←Back</a>
+        <div class="main">
+            <p>発音を見てひらがなを合わせる：</p>
+            <p id="hiragana">平仮名(ひらがな)</p>
+            <p>発音: <strong><span id="pronoun"></span></strong></p>
+            <button id="btn" onclick="randomPronoun()">ランダムの発音</button>
+        </div>
+    </body>
+</html>
