@@ -26,7 +26,7 @@
         </style>
         <script>
             let hiraList = [];
-            let random; let ch = 0;
+            let random;
             
 
             hiraList.push(['あ','a']);
@@ -75,14 +75,40 @@
             hiraList.push(['わ','wa']);
             hiraList.push(['を','o(wo)']);
             hiraList.push(['ん','n']);
+            hiraList.push(['が', 'ga']);
+            hiraList.push(['ざ', 'za']);
+            hiraList.push(['だ', 'da']);
+            hiraList.push(['ば', 'ba']);
+            hiraList.push(['ぱ', 'pa']);
+            hiraList.push(['ぎ', 'gi']);
+            hiraList.push(['じ', 'ji(shi)']);
+            hiraList.push(['ぢ', 'ji(chi)']);
+            hiraList.push(['ず', 'zu(su)']);
+            hiraList.push(['づ', 'zu(tsu)']);
+            hiraList.push(['び', 'bi']);
+            hiraList.push(['ぴ', 'pi']);
+            hiraList.push(['ぐ', 'gu']);
+            hiraList.push(['ぶ', 'bu']);
+            hiraList.push(['ぷ', 'pu']);
+            hiraList.push(['げ', 'ge']);
+            hiraList.push(['ぜ', 'ze']);
+            hiraList.push(['で', 'de']);
+            hiraList.push(['ぺ', 'be']);
+            hiraList.push(['ぺ', 'pe']);
+            hiraList.push(['ぞ', 'zo']);
+            hiraList.push(['ど', 'do']);
+            hiraList.push(['ぼ', 'bo']);
+            hiraList.push(['ぽ', 'po']);
+            hiraList.push(['ご', 'go']);
             
             
             function randomHiragana()
             {
                 let a = document.getElementById("answer");
-                a.innerText = "";
+                a.style.fontSize = "x-large";
+                a.innerText = "?";
 
-                random = Math.floor(Math.random() * 46);
+                random = Math.floor(Math.random() * 71);
 
                 let h = document.getElementById("hiragana");
                 h.style.fontSize = "xx-large";
