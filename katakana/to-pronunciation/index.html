@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <title>Random Katakana - Xeon</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes, 
+        maximum-scale=5, minimum-scale=1.0">
+        <style>
+            * {
+                background-color: #1f2023;
+                color: #dddddd;
+            }
+            .main {
+                text-align: center;
+                width: 500px;
+                height: 300px;
+                position: absolute;
+                left: 45%;
+                top: 50%;
+                margin-left: -150px;
+                margin-top: -150px;
+            }
+            #btn {
+                background-color: #717171;
+                border: 1px solid #7b7979;
+                color: #dddddd;
+                padding: 10px 20px;
+                text-align: center;
+                text-decoration: none;
+                display: inline-block;
+                font-size: 16px;
+                margin: 4px 2px;
+                border-radius: 4px;
+                transition: background-color 0.3s;
+            }
+            #btn:hover {
+                filter: brightness(0.85);
+            }
+            #btn:active {
+                filter: brightness(0.7);
+            }
+        </style>
+        <script>
+            let kataList = [];
+            let random;
+
+            kataList.push(['ア', 'a'])
+            kataList.push(['イ', 'i'])
+            kataList.push(['ウ', 'u'])
+            kataList.push(['', ''])
+            kataList.push(['', ''])
+            kataList.push(['', ''])
+            kataList.push(['', ''])
+            kataList.push(['', ''])
+            kataList.push(['', ''])
+            kataList.push(['', ''])
+            kataList.push(['', ''])
+            kataList.push(['', ''])
+            kataList.push(['', ''])
+            kataList.push(['', ''])
+            kataList.push(['', ''])
+            kataList.push(['', ''])
+            kataList.push(['', ''])
+            kataList.push(['', ''])
+            kataList.push(['', ''])
+            kataList.push(['', ''])
+            kataList.push(['', ''])
+            kataList.push(['', ''])
+            kataList.push(['', ''])
+            kataList.push(['', ''])
+            kataList.push(['', ''])
+            kataList.push(['', ''])
+            kataList.push(['', ''])
+            kataList.push(['', ''])
+            kataList.push(['', ''])
+            kataList.push(['', ''])
+            kataList.push(['', ''])
+            kataList.push(['', ''])
+            kataList.push(['', ''])
+            kataList.push(['', ''])
+            kataList.push(['', ''])
+            kataList.push(['', ''])
+            kataList.push(['', ''])
+            kataList.push(['', ''])
+            kataList.push(['', ''])
+            kataList.push(['', ''])
+            kataList.push(['', ''])
+            kataList.push(['', ''])
+            kataList.push(['', ''])
+            kataList.push(['', ''])
+            kataList.push(['', ''])
+            kataList.push(['', ''])
+            kataList.push(['', ''])
+            kataList.push(['', ''])
+            kataList.push(['', ''])
+            kataList.push(['', ''])
+            kataList.push(['', ''])
+            kataList.push(['', ''])
+            kataList.push(['', ''])
+            kataList.push(['', ''])
+            kataList.push(['', ''])
+            kataList.push(['', ''])
+            kataList.push(['', ''])
+            kataList.push(['', ''])
+            kataList.push(['', ''])
+            kataList.push(['', ''])
+            
+            function showKatakana()
+            {
+                random = Math.floor(Math.random() * 70);
+
+                let k = document.getElementById("katakana");
+                k.style.fontSize = "xx-large";
+                k.innerText = kataList[random][0];
+
+                let p = document.getElementById("pronoun");
+                p.style.fontSize = "x-large";
+                p.innerText = "?";
+
+                let b = document.getElementById("btn");
+                b.setAttribute("onClick", "showPronoun()");
+                b.innerText = "정답 표시";
+            }
+
+            function showPronoun()
+            {
+                let p = document.getElementById("pronoun");
+                p.innerText = kataList[random][1];
+
+                let b = document.getElementById("btn");
+                b.setAttribute("onClick", "showKatakana()");
+                b.innerText = "가타카나 표시";
+            }
+        </script>
+    </head>
+    <body>
+        <a href="../">←Back</a>
+        <div class="main">
+            <p>랜덤 가타카나 보고 발음 맞추기:</p>
+            <p id="katakana" >カタカナ(가타카나)</p>
+            <p>정답: <strong id="pronoun"></strong></p>
+            <button id="btn" onclick="showKatakana()">가타카나 표시</button>
+        </div>
+    </body>
+</html>
