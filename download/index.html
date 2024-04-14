@@ -3,6 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <title>Xeon</title>
+        <link rel="icon" href="../lemonwiki.png">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes, 
         maximum-scale=5, minimum-scale=1.0">
         <style>
@@ -13,7 +14,12 @@
                 background-color: #1f2023;
                 color: #dddddd;
             }
-            
+            .footer {
+                position: fixed;
+                top: 93%;
+                width: 100%;
+                text-align: center;
+            }
         </style>
     </head>
     <body>
@@ -21,6 +27,10 @@
         <div class="basic">
             <h2>Download List</h2>
             <p><a href="yt-dlp">/yt-dlp</a></p>
+            <p class="footer">Copyright © 2023-<span id="current-year"></span> An Hyeonseo. All Rights Reserved.</p>
         </div>
     </body>
+    <script>
+        document.getElementById("current-year").innerText = new Date().getFullYear();
+    </script>
 </html>

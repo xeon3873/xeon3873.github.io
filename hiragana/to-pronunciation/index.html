@@ -20,6 +20,12 @@
                 margin-left: -150px;
                 margin-top: -150px;
             }
+            .footer {
+                position: fixed;
+                top: 93%;
+                width: 100%;
+                text-align: center;
+            }
         </style>
         <script>
             let hiraList = [];
@@ -134,6 +140,10 @@
             <p id="hiragana">平仮名(ひらがな)</p>
             <p>正解: <strong><span id="answer"></span></strong></p>
             <button id="btn" onclick="randomHiragana()">ランダム ひらがな</button>
+            <p class="footer">Copyright © 2023-<span id="current-year"></span> An Hyeonseo. All Rights Reserved.</p>
         </div>
     </body>
+    <script>
+        document.getElementById("current-year").innerText = new Date().getFullYear();
+    </script>
 </html>

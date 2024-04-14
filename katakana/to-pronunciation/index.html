@@ -3,6 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <title>Random Katakana - Xeon</title>
+        <link rel="icon" href="../../lemonwiki.png">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes, 
         maximum-scale=5, minimum-scale=1.0">
         <style>
@@ -32,6 +33,7 @@
                 margin: 4px 2px;
                 border-radius: 4px;
                 transition: background-color 0.3s;
+                font-weight: bold;
             }
             #btn:hover {
                 filter: brightness(0.85);
@@ -47,74 +49,60 @@
             kataList.push(['ア', 'a'])
             kataList.push(['イ', 'i'])
             kataList.push(['ウ', 'u'])
-            kataList.push(['', ''])
-            kataList.push(['', ''])
-            kataList.push(['', ''])
-            kataList.push(['', ''])
-            kataList.push(['', ''])
-            kataList.push(['', ''])
-            kataList.push(['', ''])
-            kataList.push(['', ''])
-            kataList.push(['', ''])
-            kataList.push(['', ''])
-            kataList.push(['', ''])
-            kataList.push(['', ''])
-            kataList.push(['', ''])
-            kataList.push(['', ''])
-            kataList.push(['', ''])
-            kataList.push(['', ''])
-            kataList.push(['', ''])
-            kataList.push(['', ''])
-            kataList.push(['', ''])
-            kataList.push(['', ''])
-            kataList.push(['', ''])
-            kataList.push(['', ''])
-            kataList.push(['', ''])
-            kataList.push(['', ''])
-            kataList.push(['', ''])
-            kataList.push(['', ''])
-            kataList.push(['', ''])
-            kataList.push(['', ''])
-            kataList.push(['', ''])
-            kataList.push(['', ''])
-            kataList.push(['', ''])
-            kataList.push(['', ''])
-            kataList.push(['', ''])
-            kataList.push(['', ''])
-            kataList.push(['', ''])
-            kataList.push(['', ''])
-            kataList.push(['', ''])
-            kataList.push(['', ''])
-            kataList.push(['', ''])
-            kataList.push(['', ''])
-            kataList.push(['', ''])
-            kataList.push(['', ''])
-            kataList.push(['', ''])
-            kataList.push(['', ''])
-            kataList.push(['', ''])
-            kataList.push(['', ''])
-            kataList.push(['', ''])
-            kataList.push(['', ''])
-            kataList.push(['', ''])
-            kataList.push(['', ''])
-            kataList.push(['', ''])
-            kataList.push(['', ''])
-            kataList.push(['', ''])
-            kataList.push(['', ''])
-            kataList.push(['', ''])
-            kataList.push(['', ''])
-            kataList.push(['', ''])
+            kataList.push(['エ', 'e'])
+            kataList.push(['オ', 'o'])
+            kataList.push(['カ', 'ka'])
+            kataList.push(['キ', 'ki'])
+            kataList.push(['ク', 'ku'])
+            kataList.push(['ケ', 'ke'])
+            kataList.push(['コ', 'ko'])
+            kataList.push(['サ', 'sa'])
+            kataList.push(['シ', 'shi'])
+            kataList.push(['ス', 'su'])
+            kataList.push(['セ', 'se'])
+            kataList.push(['ソ', 'so'])
+            kataList.push(['タ', 'ta'])
+            kataList.push(['チ', 'chi'])
+            kataList.push(['ツ', 'tsu'])
+            kataList.push(['テ', 'te'])
+            kataList.push(['ト', 'to'])
+            kataList.push(['ナ', 'na'])
+            kataList.push(['ニ', 'ni'])
+            kataList.push(['ヌ', 'nu'])
+            kataList.push(['ネ', 'ne'])
+            kataList.push(['ノ', 'no'])
+            kataList.push(['ハ', 'ha'])
+            kataList.push(['ヒ', 'hi'])
+            kataList.push(['フ', 'hu'])
+            kataList.push(['ヘ', 'he'])
+            kataList.push(['ホ', 'ho'])
+            kataList.push(['マ', 'ma'])
+            kataList.push(['ミ', 'mi'])
+            kataList.push(['ム', 'mu'])
+            kataList.push(['メ', 'me'])
+            kataList.push(['モ', 'mo'])
+            kataList.push(['ヤ', 'ya'])
+            kataList.push(['ユ', 'yu'])
+            kataList.push(['ヨ', 'yo'])
+            kataList.push(['ラ', 'ra'])
+            kataList.push(['リ', 'ri'])
+            kataList.push(['ル', 'ru'])
+            kataList.push(['レ', 're'])
+            kataList.push(['ロ', 'ro'])
+            kataList.push(['ワ', 'wa'])
+            kataList.push(['ン', 'n'])
             
             function showKatakana()
             {
-                random = Math.floor(Math.random() * 70);
+                random = Math.floor(Math.random() * 45);
 
                 let k = document.getElementById("katakana");
-                k.style.fontSize = "xx-large";
+                k.style.fontSize = "xxx-large";
                 k.innerText = kataList[random][0];
 
                 let p = document.getElementById("pronoun");
                 p.style.fontSize = "x-large";
+                p.style.color = "#dddddd"
                 p.innerText = "?";
 
                 let b = document.getElementById("btn");
@@ -134,12 +122,16 @@
         </script>
     </head>
     <body>
-        <a href="../">←Back</a>
+        <a href="../">←돌아가기</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../../hiragana">히라가나도 있어요</a>
         <div class="main">
             <p>랜덤 가타카나 보고 발음 맞추기:</p>
-            <p id="katakana" >カタカナ(가타카나)</p>
-            <p>정답: <strong id="pronoun"></strong></p>
+            <strong id="katakana" style="font-size: xx-large;">カタカナ(가타카나)</strong>
+            <p>정답: <strong id="pronoun" style="color: #e80000">※ 탁음과 반탁음은 포함되어 있지 않아요.</strong></p>
             <button id="btn" onclick="showKatakana()">가타카나 표시</button>
+            <p>Copyright © 2023-<span id="current-year"></span> An Hyeonseo. All Rights Reserved.</p>
         </div>
     </body>
+    <script>
+        document.getElementById("current-year").innerText = new Date().getFullYear();
+    </script>
 </html>

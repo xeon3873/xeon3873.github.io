@@ -3,6 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <title>Xeon</title>
+        <link rel="icon" href="lemonwiki.png">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes, 
         maximum-scale=5, minimum-scale=1.0">
         <style>
@@ -11,13 +12,24 @@
                 background-color: #1f2023;
                 color: #dddddd;
             }
+            .footer {
+                position: fixed;
+                top: 93%;
+                width: 100%;
+                text-align: center;
+            }
         </style>
     </head>
     <body>
-        <h2>Welcome!</h2>
+        <h2>Xeon의 사이트에 오신 것을 환영해요.</h2>
+        <strong style="color: #4270fa">소스코드는 <a href="https://github.com/xeon3873/xeon3873.github.io" style="color: #0b47f9">여기서 확인해주세요</a>.</strong>
         <p><a href="download">/download</a></p>
         <p><a href="hiragana">/hiragana</a></p>
         <p><a href="1d3fgt">/1d3fgt</a></p>
         <p><a href="katakana">/katakana</a></p>
+        <p class="footer">Copyright © 2023-<span id="current-year"></span> An Hyeonseo. All Rights Reserved.</p>
     </body>
+    <script>
+        document.getElementById("current-year").innerText = new Date().getFullYear();
+    </script>
 </html>

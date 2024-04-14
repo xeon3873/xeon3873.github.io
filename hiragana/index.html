@@ -3,6 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <title>Xeon</title>
+        <link rel="icon" href="../lemonwiki.png">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes, 
         maximum-scale=5, minimum-scale=1.0">
         <style>
@@ -13,15 +14,44 @@
                 background-color: #1f2023;
                 color: #dddddd;
             }
-            
+            #btn {
+                background-color: #717171;
+                border: 1px solid #7b7979;
+                color: #dddddd;
+                padding: 10px 20px;
+                text-align: center;
+                text-decoration: none;
+                display: inline-block;
+                font-size: 16px;
+                margin: 4px 2px;
+                border-radius: 4px;
+                transition: background-color 0.3s;
+                font-weight: bold;
+            }
+            #btn:hover {
+                filter: brightness(0.85);
+            }
+            #btn:active {
+                filter: brightness(0.7);
+            }
+            .footer {
+                position: fixed;
+                top: 93%;
+                width: 100%;
+                text-align: center;
+            }
         </style>
     </head>
     <body>
-        <a href="../">←Back</a>
+        <a href="../">←뒤로</a>
         <div class="basic">
-            <h2>Hiragana</h2>
-            <p><a href="to-pronunciation">/to-pronunciation</a></p>
-            <p><a href="to-hiragana">/to-hiragana</a></p>
+            <h2><ruby>平<rt>ひら</rt>仮<rt>が</rt>名<rt>な</rt></ruby></h2>
+            <button id="btn" onClick="location.href='to-hiragana'">랜덤 발음으로 히라가나 맞추기</button>
+            <button id="btn" onClick="location.href='to-pronunciation'">랜덤 히라가나로 발음 맞추기</button>
+            <p class="footer">Copyright © 2023-<span id="current-year"></span> An Hyeonseo. All Rights Reserved.</p>
         </div>
     </body>
+    <script>
+        document.getElementById("current-year").innerText = new Date().getFullYear();
+    </script>
 </html>

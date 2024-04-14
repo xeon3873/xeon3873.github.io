@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <title>Random Katakana - Xeon</title>
+        <link rel="icon" href="../../lemonwiki.png">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes, 
+        maximum-scale=5, minimum-scale=1.0">
+        <style>
+            * {
+                background-color: #1f2023;
+                color: #dddddd;
+            }
+            .main {
+                text-align: center;
+                width: 500px;
+                height: 300px;
+                position: absolute;
+                left: 45%;
+                top: 50%;
+                margin-left: -150px;
+                margin-top: -150px;
+            }
+            #btn {
+                background-color: #717171;
+                border: 1px solid #7b7979;
+                color: #dddddd;
+                padding: 10px 20px;
+                text-align: center;
+                text-decoration: none;
+                display: inline-block;
+                font-size: 16px;
+                margin: 4px 2px;
+                border-radius: 4px;
+                transition: background-color 0.3s;
+                font-weight: bold;
+            }
+            #btn:hover {
+                filter: brightness(0.85);
+            }
+            #btn:active {
+                filter: brightness(0.7);
+            }
+        </style>
+        <script>
+            let kataList = [];
+            let random;
+
+            kataList.push(['ア', 'a'])
+            kataList.push(['イ', 'i'])
+            kataList.push(['ウ', 'u'])
+            kataList.push(['エ', 'e'])
+            kataList.push(['オ', 'o'])
+            kataList.push(['カ', 'ka'])
+            kataList.push(['キ', 'ki'])
+            kataList.push(['ク', 'ku'])
+            kataList.push(['ケ', 'ke'])
+            kataList.push(['コ', 'ko'])
+            kataList.push(['サ', 'sa'])
+            kataList.push(['シ', 'shi'])
+            kataList.push(['ス', 'su'])
+            kataList.push(['セ', 'se'])
+            kataList.push(['ソ', 'so'])
+            kataList.push(['タ', 'ta'])
+            kataList.push(['チ', 'chi'])
+            kataList.push(['ツ', 'tsu'])
+            kataList.push(['テ', 'te'])
+            kataList.push(['ト', 'to'])
+            kataList.push(['ナ', 'na'])
+            kataList.push(['ニ', 'ni'])
+            kataList.push(['ヌ', 'nu'])
+            kataList.push(['ネ', 'ne'])
+            kataList.push(['ノ', 'no'])
+            kataList.push(['ハ', 'ha'])
+            kataList.push(['ヒ', 'hi'])
+            kataList.push(['フ', 'hu'])
+            kataList.push(['ヘ', 'he'])
+            kataList.push(['ホ', 'ho'])
+            kataList.push(['マ', 'ma'])
+            kataList.push(['ミ', 'mi'])
+            kataList.push(['ム', 'mu'])
+            kataList.push(['メ', 'me'])
+            kataList.push(['モ', 'mo'])
+            kataList.push(['ヤ', 'ya'])
+            kataList.push(['ユ', 'yu'])
+            kataList.push(['ヨ', 'yo'])
+            kataList.push(['ラ', 'ra'])
+            kataList.push(['リ', 'ri'])
+            kataList.push(['ル', 'ru'])
+            kataList.push(['レ', 're'])
+            kataList.push(['ロ', 'ro'])
+            kataList.push(['ワ', 'wa'])
+            kataList.push(['ン', 'n'])
+
+            function showPronoun()
+            {
+                random = Math.floor(Math.random() * 45);
+
+                let p = document.getElementById("pronoun");
+                p.style.fontSize = "x-large";
+                p.style.color = "#dddddd"
+                p.innerText = kataList[random][1];
+
+                let k = document.getElementById("katakana");
+                k.style.fontSize = "xxx-large";
+                k.innerText = "？";
+
+                let b = document.getElementById("btn");
+                b.setAttribute("onClick", "showKatakana()");
+                b.innerText = "정답 표시";
+            }
+            function showKatakana()
+            {
+                let k = document.getElementById("katakana");
+                k.innerText = kataList[random][0];
+
+                let b = document.getElementById("btn");
+                b.setAttribute("onClick", "showPronoun()");
+                b.innerText = "발음 표시";
+            }
+        </script>
+    </head>
+    <body>
+        <a href="../">←돌아가기</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../../hiragana">히라가나도 있어요</a>
+        <div class="main">
+            <p>랜덤 발음 보고 가타카나 맞추기:</p>
+            <strong id="katakana" style="font-size: xx-large;">カタカナ(가타카나)</strong>
+            <p>정답: <strong id="pronoun" style="color: #e80000">※ 탁음과 반탁음은 포함되어 있지 않아요.</strong></p>
+            <button id="btn" onclick="showPronoun()">발음 표시</button>
+            <p>Copyright © 2023-<span id="current-year"></span> An Hyeonseo. All Rights Reserved.</p>
+        </div>
+    </body>
+    <script>
+        document.getElementById("current-year").innerText = new Date().getFullYear();
+    </script>
+</html>
