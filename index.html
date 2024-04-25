@@ -24,7 +24,7 @@
         <h2>Xeon의 사이트에 오신 것을 환영해요.</h2>
         <p class="date">????년-??월-??일</p>
         <h2 class="clock">??:??:?? KST</h2>
-        <strong style="color: #4270fa">Check github's repository<a href="https://github.com/xeon3873/xeon3873.github.io" style="color: #0b47f9">here</a>.</strong>
+        <strong style="color: #4270fa">Check github's repository <a href="https://github.com/xeon3873/xeon3873.github.io" style="color: #0b47f9">here</a>.</strong>
         <p><a href="download">/download</a></p>
         <p><a href="hiragana">/hiragana</a></p>
         <p><a href="1d3fgt">/1d3fgt</a></p>
@@ -33,27 +33,25 @@
     </body>
     <script>
         const utc = 
-      curr.getTime() + 
-      (curr.getTimezoneOffset() * 60 * 1000);
+        new Date().getTime() + 
+        (curr.getTimezoneOffset() * 60 * 1000);
 
-// 3. UTC to KST (UTC + 9시간)
-const KR_TIME_DIFF = 9 * 60 * 60 * 1000;
-const kr_curr = 
-      new Date(utc + (KR_TIME_DIFF));
+        const KR_TIME_DIFF = 9 * 60 * 60 * 1000;
+        const kst = new Date(utc + (KR_TIME_DIFF));
         
-        document.getElementById("current-year").innerText = c.getFullYear();
+        document.getElementById("current-year").innerText = kst.getFullYear();
 
         function getClock()
         {
-            const h = String(c.getHours()).padStart(2,"0");
-            const m = String(c.getMinutes()).padStart(2,"0");
-            const s = String(c.getSeconds()).padStart(2,"0");
-            document.getElementById("current-year").innerText = `${h}:${m}:${s}`;
+            const h = String(kst.getHours()).padStart(2,"0");
+            const m = String(kst.getMinutes()).padStart(2,"0");
+            const s = String(kst.getSeconds()).padStart(2,"0");
+            document.getElementById("clock").innerText = `${h}:${m}:${s}`;
 
-            const y = String(c.getFullYear()).padStart(2,"0");
-            const mo = String(c.getMonth()).padStart(2,"0");
-            const d = String(c.getDate()).padStart(2,"0");
-            document.getElementById("current-year").innerText = `${y}년-${mo}월-${d}일`;
+            const y = String(kst.getFullYear()).padStart(2,"0");
+            const mo = String(kst.getMonth()).padStart(2,"0");
+            const d = String(kst.getDate()).padStart(2,"0");
+            document.getElementById("date").innerText = `${y}년-${mo}월-${d}일`;
         }
         setInterval(getClock, 1000);
     </script>
