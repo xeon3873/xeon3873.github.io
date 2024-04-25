@@ -32,7 +32,14 @@
         <p class="footer">Copyright © 2023-<span id="current-year"></span> Xeon. All Rights Reserved.</p>
     </body>
     <script>
-        let c = new getWorldTime(+9);
+        const utc = 
+      curr.getTime() + 
+      (curr.getTimezoneOffset() * 60 * 1000);
+
+// 3. UTC to KST (UTC + 9시간)
+const KR_TIME_DIFF = 9 * 60 * 60 * 1000;
+const kr_curr = 
+      new Date(utc + (KR_TIME_DIFF));
         
         document.getElementById("current-year").innerText = c.getFullYear();
 
