@@ -34,15 +34,16 @@
     <script>
         document.getElementById("current-year").innerText = new Date().getFullYear();
 
+        var xmlHttpRequest = new XMLHttpRequest();
+        xmlHttpRequest.open('HEAD', window.location.href.toString(), false);
+        xmlHttpRequest.setRequestHeader("ContentType", "text/html");
+        xmlHttpRequest.send('');
+        
         function getClock()
         {
-            const date = new Date();
-            const utc = 
-            date.getTime() + (date.getTimezoneOffset() * 60 * 1000);
+            var serverDate = xmlHttpRequest.getResponseHeader("Date");
 
-            const KR_TIME_DIFF = 9 * 60 * 60 * 1000;
-            const kst = new Date(utc + (KR_TIME_DIFF));
-            
+            const kst = new Date(serverDate);
             const h = String(kst.getHours()).padStart(2,"0");
             const m = String(kst.getMinutes()).padStart(2,"0");
             const s = String(kst.getSeconds()).padStart(2,"0");
