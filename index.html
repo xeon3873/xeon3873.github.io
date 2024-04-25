@@ -23,7 +23,7 @@
     <body>
         <h2>Xeon의 사이트에 오신 것을 환영해요.</h2>
         <p id="date">????년-??월-??일</p>
-        <h2 id="clock">??:??:?? KST</h2>
+        <h2 id="clock">?M ??:??:?? KST</h2>
         <strong style="color: #4270fa">Check github's repository <a href="https://github.com/xeon3873/xeon3873.github.io" style="color: #0b47f9">here</a>.</strong>
         <p><a href="download">/download</a></p>
         <p><a href="hiragana">/hiragana</a></p>
@@ -32,27 +32,52 @@
         <p class="footer">Copyright © 2023-<span id="current-year"></span> Xeon. All Rights Reserved.</p>
     </body>
     <script>
-        document.getElementById("current-year").innerText = new Date().getFullYear();
-
         var xmlHttpRequest = new XMLHttpRequest();
         xmlHttpRequest.open('HEAD', window.location.href.toString(), false);
         xmlHttpRequest.setRequestHeader("ContentType", "text/html");
         xmlHttpRequest.send('');
-            
         var serverDate = xmlHttpRequest.getResponseHeader("Date");
+
+        const kst = new Date(serverDate + ((date.getTimezoneOffset() + 9) * 60 * 1000));
+
+        document.getElementById("current-year").innerText = kst.getFullYear();
         
+        var h24 = kst.getHours();
+        var m = kst.getMinutes();
+        var s = kst.getSeconds();
+        var d = kst.getDate();
+        var apm = "?M";
+        var h12;
         function getClock()
         {
-            const kst = new Date(serverDate);
-            const h = String(kst.getHours()).padStart(2,"0");
-            const m = String(kst.getMinutes()).padStart(2,"0");
-            const s = String(kst.getSeconds()).padStart(2,"0");
-            document.getElementById("clock").innerText = `${h}:${m}:${s} KST`;
+            if(s == 60)
+            {
+                s = 0; m++;
+                if(m == 60)
+                {
+                    m == 0; h24++;
+                    if(h24 == 24)
+                    {
+                        h24 = 0; d++;
+                        if(d >= 28) document.getElementById("date").innerText = "다시 새로고침해주세요.";
+                    }
+                }
+            }
+
+            if(h24 >= 13) h12 -= 12;
+            else if(h24 == 0) h12 = 12;
+            else h12 = h24;
+
+            if(h24 >= 12) apm = "PM";
+            else apm = "AM";
+            
+            document.getElementById("clock").innerText = `${apm} ${String(h12).padStart(2,"0")}:${String(m).padStart(2,"0")}:${String(s).padStart(2,"0")} KST`;
 
             const y = String(kst.getFullYear()).padStart(2,"0");
             const mo = String(kst.getMonth()).padStart(2,"0");
-            const d = String(kst.getDate()).padStart(2,"0");
-            document.getElementById("date").innerText = `${y}년-${mo}월-${d}일`;
+            document.getElementById("date").innerText = `${y}년-${mo}월-${String(d).padStart(2,"0")}일`;
+
+            s++;
         }
         setInterval(getClock, 1000);
     </script>
