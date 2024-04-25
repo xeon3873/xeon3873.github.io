@@ -38,7 +38,9 @@
         xmlHttpRequest.send('');
         var serverDate = xmlHttpRequest.getResponseHeader("Date");
 
-        const kst = new Date(serverDate + ((date.getTimezoneOffset() + 9) * 60 * 1000));
+        const utc = serverDate.getTime() + (serverDate.getTimezoneOffset() * 60 * 1000);
+        const KR_TIME_DIFF = 9 * 60 * 60 * 1000;
+        const kst = new Date(utc + (KR_TIME_DIFF));
 
         document.getElementById("current-year").innerText = kst.getFullYear();
         
