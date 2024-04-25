@@ -32,13 +32,11 @@
         <p class="footer">Copyright © 2023-<span id="current-year"></span> Xeon. All Rights Reserved.</p>
     </body>
     <script>
-        const date = new Date();
-        
-        
-        document.getElementById("current-year").innerText = date.getFullYear();
+        document.getElementById("current-year").innerText = new Date().getFullYear();
 
         function getClock()
         {
+            const date = new Date();
             const utc = 
             date.getTime() + (date.getTimezoneOffset() * 60 * 1000);
 
