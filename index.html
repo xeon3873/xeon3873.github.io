@@ -77,8 +77,7 @@
             document.getElementById("clock").innerText = `${String(h12).padStart(2,"0")}:${String(m).padStart(2,"0")}:${String(s).padStart(2,"0")} ${apm}`;
 
             const y = String(kst.getFullYear()).padStart(2,"0");
-            var mo = String(kst.getMonth()+1).padStart(2,"0");
-            if(d >= 28) {mo = "(새로고침 필요)"; y = "(새로고침 필요)";}
+            const mo = String(kst.getMonth()+1).padStart(2,"0");
             document.getElementById("date").innerText = `한국시간(KST): ${y}년-${mo}월-${String(d).padStart(2,"0")}일`;
 
             s++;
