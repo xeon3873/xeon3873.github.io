@@ -58,7 +58,7 @@
                 s = 0; m++;
                 if(m == 60)
                 {
-                    m == 0; h24++;
+                    m = 0; h24++;
                     if(h24 == 24)
                     {
                         h24 = 0; d++;
@@ -82,6 +82,6 @@
 
             s++;
         }
-        setInterval(getClock, 100);
+        setInterval(getClock, 10);
     </script>
 </html>
