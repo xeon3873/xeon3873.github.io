@@ -33,17 +33,18 @@
     </body>
     <script>
         const date = new Date();
-        const utc = 
-        date.getTime() + 
-        (date.getTimezoneOffset() * 60 * 1000);
-
-        const KR_TIME_DIFF = 9 * 60 * 60 * 1000;
-        const kst = new Date(utc + (KR_TIME_DIFF));
+        
         
         document.getElementById("current-year").innerText = date.getFullYear();
 
         function getClock()
         {
+            const utc = 
+            date.getTime() + (date.getTimezoneOffset() * 60 * 1000);
+
+            const KR_TIME_DIFF = 9 * 60 * 60 * 1000;
+            const kst = new Date(utc + (KR_TIME_DIFF));
+            
             const h = String(kst.getHours()).padStart(2,"0");
             const m = String(kst.getMinutes()).padStart(2,"0");
             const s = String(kst.getSeconds()).padStart(2,"0");
