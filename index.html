@@ -33,16 +33,16 @@
     </body>
     <script>
         document.getElementById("current-year").innerText = new Date().getFullYear();
+
+        var xmlHttpRequest = new XMLHttpRequest();
+        xmlHttpRequest.open('HEAD', window.location.href.toString(), false);
+        xmlHttpRequest.setRequestHeader("ContentType", "text/html");
+        xmlHttpRequest.send('');
+            
+        var serverDate = xmlHttpRequest.getResponseHeader("Date");
         
         function getClock()
         {
-            var xmlHttpRequest = new XMLHttpRequest();
-            xmlHttpRequest.open('HEAD', window.location.href.toString(), false);
-            xmlHttpRequest.setRequestHeader("ContentType", "text/html");
-            xmlHttpRequest.send('');
-            
-            var serverDate = xmlHttpRequest.getResponseHeader("Date");
-
             const kst = new Date(serverDate);
             const h = String(kst.getHours()).padStart(2,"0");
             const m = String(kst.getMinutes()).padStart(2,"0");
@@ -54,6 +54,6 @@
             const d = String(kst.getDate()).padStart(2,"0");
             document.getElementById("date").innerText = `${y}년-${mo}월-${d}일`;
         }
-        setInterval(getClock, 500);
+        setInterval(getClock, 1000);
     </script>
 </html>
