@@ -22,8 +22,8 @@
     </head>
     <body>
         <h2>Xeon의 사이트에 오신 것을 환영해요.</h2>
-        <p id="date">????년-??월-??일</p>
-        <h2 id="clock">?M ??:??:?? KST</h2>
+        <p id="date">한국시간(KST): ????년-??월-??일</p>
+        <h2 id="clock">?M ??:??:??</h2>
         <strong style="color: #4270fa">Check github's repository <a href="https://github.com/xeon3873/xeon3873.github.io" style="color: #0b47f9">here</a>.</strong>
         <p><a href="download">/download</a></p>
         <p><a href="hiragana">/hiragana</a></p>
@@ -74,14 +74,15 @@
             if(h24 >= 12) apm = "PM";
             else apm = "AM";
             
-            document.getElementById("clock").innerText = `${apm} ${String(h12).padStart(2,"0")}:${String(m).padStart(2,"0")}:${String(s).padStart(2,"0")} KST`;
+            document.getElementById("clock").innerText = `${apm} ${String(h12).padStart(2,"0")}:${String(m).padStart(2,"0")}:${String(s).padStart(2,"0")}`;
 
             const y = String(kst.getFullYear()).padStart(2,"0");
-            const mo = String(kst.getMonth()).padStart(2,"0");
-            document.getElementById("date").innerText = `${y}년-${mo}월-${String(d).padStart(2,"0")}일`;
+            var mo = String(kst.getMonth()+1).padStart(2,"0");
+            if(d >= 28) {mo = "(새로고침 필요)"; y = "(새로고침 필요)";}
+            document.getElementById("date").innerText = `한국시간(KST): ${y}년-${mo}월-${String(d).padStart(2,"0")}일`;
 
             s++;
         }
-        setInterval(getClock, 10);
+        setInterval(getClock, 1);
     </script>
 </html>
