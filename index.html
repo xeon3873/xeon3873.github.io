@@ -37,10 +37,10 @@
         var xmlHttpRequest = new XMLHttpRequest();
         xmlHttpRequest.open('HEAD', window.location.href.toString(), false);
         xmlHttpRequest.setRequestHeader("ContentType", "text/html");
-        xmlHttpRequest.send('');
         
         function getClock()
         {
+            xmlHttpRequest.send('');
             var serverDate = xmlHttpRequest.getResponseHeader("Date");
 
             const kst = new Date(serverDate);
