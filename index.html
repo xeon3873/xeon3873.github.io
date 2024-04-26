@@ -53,6 +53,7 @@
         var h12;
         function getClock()
         {
+            s++;
             if(s == 60)
             {
                 s = 0; m++;
@@ -79,8 +80,6 @@
             const y = String(kst.getFullYear()).padStart(2,"0");
             const mo = String(kst.getMonth()+1).padStart(2,"0");
             document.getElementById("date").innerText = `한국시간(KST): ${y}년 ${mo}월 ${String(d).padStart(2,"0")}일`;
-
-            s++;
         }
         setInterval(getClock, 1000);
     </script>
