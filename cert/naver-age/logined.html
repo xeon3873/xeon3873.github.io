@@ -38,7 +38,6 @@
   // 네이버 사용자 프로필 조회 이후 프로필 정보를 처리할 callback function
   function naverSignInCallback() {
     document.getElementById("age").innerText = naver_id_login.getProfileData('age');
-    document.getElementById("birthyear").innerText = naver_id_login.getProfileData('birthyear');
     document.getElementById("birthday").innerText = naver_id_login.getProfileData('birthday');
     document.getElementById("nickname").innerText = naver_id_login.getProfileData('nickname');
   }
