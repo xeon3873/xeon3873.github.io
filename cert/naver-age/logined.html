@@ -1,14 +1,30 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ko">
 <head>
-<script type="text/javascript" src="https://static.nid.naver.com/js/naverLogin_implicit-1.0.3.js" charset="utf-8"></script>
-<script type="text/javascript" src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+  <script type="text/javascript" src="https://static.nid.naver.com/js/naverLogin_implicit-1.0.3.js" charset="utf-8"></script>
+  <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+  <meta charset="UTF-8">
+  <title>Xeon</title>
+  <link rel="icon" href="lemonwiki.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes, maximum-scale=5, minimum-scale=1.0">
+  <style>
+    * {
+      text-align: center;
+      background-color: #1f2023;
+      color: #dddddd;
+    }
+    .footer {
+      position: fixed;
+      top: 93%;
+      width: 100%;
+      text-align: center;
+    }
+  </style>
 </head>
-<body>
 <script type="text/javascript">
   var naver_id_login = new naver_id_login("iGTce4qII6dVts6WB6eE", "https://xeon3873.github.io/cert/naver-age/logined.html");
   // 접근 토큰 값 출력
-  $('body').append('<h4>접속토큰:'+naver_id_login.oauthParams.access_token+'</h4>');
+  const token = naver_id_login.oauthParams.access_token;
   // 네이버 사용자 프로필 조회
   naver_id_login.get_naver_userprofile("naverSignInCallback()");
   // 네이버 사용자 프로필 조회 이후 프로필 정보를 처리할 callback function
@@ -17,7 +33,19 @@
     const birthyear = naver_id_login.getProfileData('birthyear');
     const birthday = naver_id_login.getProfileData('birthday');
     const nickname = naver_id_login.getProfileData('nickname');
+    
+    document.getelementbyid("age").innerText = age;
+    document.getelementbyid("birthyear").innerText = birthyear;
+    document.getelementbyid("birthday").innerText = birthday;
+    document.getelementbyid("nickname").innerText = nickname;
+
   }
 </script>
+<body>
+  <h4>네이버 로그인 완료</h4>
+  
+  <h4>나이: <span id="age"></span></h4>
+  <h4>생일: <span id="birthyear"></span><span id="birthday"></span></h4>
+  <h4>닉네임: <span id="nickname"></span></h4>
 </body>
 </html>
