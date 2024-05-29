@@ -2,6 +2,7 @@
 <html lang="ko">
 <head>
   <script type="text/javascript" src="https://static.nid.naver.com/js/naverLogin_implicit-1.0.3.js" charset="utf-8"></script>
+  <script type="text/javascript" src="https://openapi.naver.com/v1/nid/getUserProfile.json"></script>
   <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
   <meta charset="UTF-8">
   <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
@@ -40,7 +41,18 @@
     document.getElementById("birthyear").innerText = naver_id_login.getProfileData('birthyear');
     document.getElementById("birthday").innerText = naver_id_login.getProfileData('birthday');
     document.getElementById("nickname").innerText = naver_id_login.getProfileData('nickname');
-
   }
+  
+  $.ajax({
+		url: "https://openapi.naver.com/v1/nid/getUserProfile.json?response_type=json",
+		type: "GET",
+		data: {"access_token":token},
+		dataType: "jsonp",
+		jsonp: "oauth_callback",
+		success: function (result) {
+			document.getElementById("birthyear").innerText = result.response.birthyear;
+			eval(callback_func1);
+		  }
+		});
 </script>
 </html>
