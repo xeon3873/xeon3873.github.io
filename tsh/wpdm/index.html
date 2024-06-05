@@ -1,1 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <title>덕원고등학교</title>
+        <link rel="icon" href="https://dukwon.dge.hs.kr/images/schl/web/dukwonh/common/favicon.ico">
+    </head>
+    <style>
+        * {
+            text-align: center;
+            background-color: #1f2023;
+            color: #dddddd;
+        }
+        .footer {
+            position: fixed;
+            top: 93%;
+            width: 100%;
+            text-align: center;
+        }
+    </style>
+    <body>
+        <img src="https://dukwon.dge.hs.kr/images/schl/web/dukwonh/common/logo.png" alt="Dukwon" />
+        <button onclick="dark()" style="float: right;">다크 모드</button>
+        <strong style="float: right;" id="date">2000년 0월 0일 0시 0분</strong>
 
+    </body>
+    <script>
+        var xmlHttpRequest = new XMLHttpRequest();
+        xmlHttpRequest.open('HEAD', window.location.href.toString(), false);
+        xmlHttpRequest.setRequestHeader("ContentType", "text/html");
+        xmlHttpRequest.send('');
+        var serverDate = xmlHttpRequest.getResponseHeader("Date");
+        const date = new Date(serverDate);
+
+        const utc = date.getTime() + (date.getTimezoneOffset() * 60 * 1000);
+        const KR_TIME_DIFF = 9 * 60 * 60 * 1000;
+        const kst = new Date(utc + (KR_TIME_DIFF));
+
+        const y = String(kst.getFullYear()).padStart(2,"0");
+        const mo = String(kst.getMonth()+1).padStart(2,"0");
+        document.getElementById("date").innerText = `${y}년 ${mo}월 ${String(kst.getDate()).padStart(2,"0")}일 ${String(kst.getHours()).padStart(2,"0")}시 ${String(kst.getMinutes()).padStart(2,"0")}분`;
+    </script>
