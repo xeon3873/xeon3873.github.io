@@ -2,35 +2,27 @@
 <html lang="ko">
     <head>
         <meta charset="UTF-8">
-        <title>Xeon</title>
-        <link rel="icon" href="lemonwiki.png">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes, 
-        maximum-scale=5, minimum-scale=1.0">
-        <style>
-            * {
-                text-align: center;
-                background-color: #1f2023;
-                color: #dddddd;
-            }
-            .footer {
-                position: fixed;
-                top: 93%;
-                width: 100%;
-                text-align: center;
-            }
-        </style>
+        <title>덕원고등학교</title>
+        <link rel="icon" href="https://dukwon.dge.hs.kr/images/schl/web/dukwonh/common/favicon.ico">
     </head>
+    <style>
+        * {
+            text-align: center;
+            background-color: #1f2023;
+            color: #dddddd;
+        }
+        .footer {
+            position: fixed;
+            top: 93%;
+            width: 100%;
+            text-align: center;
+        }
+    </style>
     <body>
-        <h2>Xeon의 사이트에 오신 것을 환영해요.</h2>
-        <p id="date">한국시간(KST): ????년 ??월 ??일</p>
-        <h2 id="clock">??:??:?? ?M</h2>
-        <strong style="color: #4270fa">Check github's repository <a href="https://github.com/xeon3873/xeon3873.github.io" style="color: #0b47f9">here</a>.</strong>
-        <p><a href="download">/download</a></p>
-        <p><a href="hiragana">/hiragana</a></p>
-        <p><a href="1d3fgt">/1d3fgt</a></p>
-        <p><a href="katakana">/katakana</a></p>
-        <p><a href="cert/naver-age">/cert/naver-age</a></p>
-        <p class="footer">Copyright © 2023-<span id="current-year"></span> Xeon. All Rights Reserved.</p>
+        <img src="https://dukwon.dge.hs.kr/images/schl/web/dukwonh/common/logo.png" alt="Dukwon" />
+        <button onclick="dark()" style="float: right;">다크 모드</button>
+        <strong style="float: right;" id="date">2000년 0월 0일 0시 0분</strong>
+
     </body>
     <script>
         var xmlHttpRequest = new XMLHttpRequest();
@@ -44,44 +36,7 @@
         const KR_TIME_DIFF = 9 * 60 * 60 * 1000;
         const kst = new Date(utc + (KR_TIME_DIFF));
 
-        document.getElementById("current-year").innerText = kst.getFullYear();
-        
-        var h24 = kst.getHours();
-        var m = kst.getMinutes();
-        var s = kst.getSeconds();
-        var d = kst.getDate();
-        var apm = "?M";
-        var h12;
-        function getClock()
-        {
-            s++;
-            if(s == 60)
-            {
-                s = 0; m++;
-                if(m == 60)
-                {
-                    m = 0; h24++;
-                    if(h24 == 24)
-                    {
-                        h24 = 0; d++;
-                        if(d >= 28) document.getElementById("date").innerText = "다시 새로고침해주세요.";
-                    }
-                }
-            }
-
-            if(h24 >= 13) h12 = h24 - 12;
-            else if(h24 == 0) h12 = 12;
-            else h12 = h24;
-
-            if(h24 >= 12) apm = "PM";
-            else apm = "AM";
-            
-            document.getElementById("clock").innerText = `${String(h12).padStart(2,"0")}:${String(m).padStart(2,"0")}:${String(s).padStart(2,"0")} ${apm}`;
-
-            const y = String(kst.getFullYear()).padStart(2,"0");
-            const mo = String(kst.getMonth()+1).padStart(2,"0");
-            document.getElementById("date").innerText = `한국시간(KST): ${y}년 ${mo}월 ${String(d).padStart(2,"0")}일`;
-        }
-        setInterval(getClock, 1000);
+        const y = String(kst.getFullYear()).padStart(2,"0");
+        const mo = String(kst.getMonth()+1).padStart(2,"0");
+        document.getElementById("date").innerText = `${y}년 ${mo}월 ${String(kst.getDate()).padStart(2,"0")}일 ${String(kst.getHours()).padStart(2,"0")}시 ${String(kst.getMinutes()).padStart(2,"0")}분`;
     </script>
-</html>
